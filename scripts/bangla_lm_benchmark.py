@@ -29,7 +29,7 @@ def eval_models(args, models, tasks):
         start_time = time.time()
         logger.info(f"Evaluating model: {model}")
         model_name = Path(model).name
-        eval_output_path = os.path.join(args.output_path, f"{model_name}.json")
+        eval_output_path = os.path.join(args.output_path, f"{int(start_time)}-{model_name}.json")
 
         command = (
                 f"lm_eval --model hf --model_args pretrained={model} --tasks {','.join(tasks)} "
