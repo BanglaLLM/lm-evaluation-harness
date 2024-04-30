@@ -11,6 +11,7 @@ from loguru import logger
 
 def parse_args():
     parser = ArgumentParser()
+    parser.add_argument("--models", type=str, help="one or multiple huggingface models, separated by comma")
     parser.add_argument("--acc_norm", type=bool, default=False)
     # TODO: implement num_fewshot and limit per task, e.g. task1:5,task2:1:100,task3::1000
     parser.add_argument("--num_fewshot", type=int, default=0)
@@ -87,10 +88,7 @@ def main():
     args = parse_args()
     os.makedirs(args.output_path, exist_ok=True)
 
-    hf_models = [
-        'hishab/mpt-125m-bn-web-book-titulm-tokenizer-hf',
-        'hishab/mpt-125m-bn-web-bloom-tokenizer-hf'
-    ]
+    models = args.models.split(',') if ',' in args.models else args.model
 
     tasks = [
         'bangla_mmlu',
@@ -101,7 +99,7 @@ def main():
 
     results = eval_hf_models(
         args=args,
-        models=hf_models,
+        models=models,
         tasks=tasks
     )
 
