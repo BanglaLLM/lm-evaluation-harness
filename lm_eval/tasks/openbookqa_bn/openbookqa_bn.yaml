@@ -1,6 +1,5 @@
 task: openbookqa_bn
 dataset_path: hishab/openbookqa-bn
-dataset_name: main
 output_type: multiple_choice
 training_split: train
 validation_split: validation
