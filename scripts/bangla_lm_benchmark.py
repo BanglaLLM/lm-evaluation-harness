@@ -12,18 +12,17 @@ from loguru import logger
 def parse_args():
     parser = ArgumentParser()
     parser.add_argument("--models", type=str, help="one or multiple huggingface models, separated by comma")
+    parser.add_argument("--tasks", type=str, default=None, help="one or multiple task separated by comma")
+    parser.add_argument("--device", type=str, default="cpu")
     parser.add_argument("--acc_norm", type=bool, default=False)
-    # TODO: implement num_fewshot and limit per task, e.g. task1:5,task2:1:100,task3::1000
     parser.add_argument("--num_fewshot", type=int, default=0)
     parser.add_argument("--limit", type=float, default=None)
-    # TODO: implement hf-auto to pick between causal and seq2seq models so we don't need this
-    # Use whatever is faster here
     parser.add_argument("--batch_size", default="auto")
     parser.add_argument("--output_path", type=str)
     return parser.parse_args()
 
 
-def eval_hf_models(args, models, tasks):
+def eval_models(args, models, tasks):
     results = {}
     
     for model in models:
@@ -35,11 +34,12 @@ def eval_hf_models(args, models, tasks):
         command = (
                 f"lm_eval --model hf --model_args pretrained={model} --tasks {','.join(tasks)} "
                 f"--num_fewshot {args.num_fewshot}{'' if args.limit is None else f' --limit {args.limit}'} "
-                f"--batch_size {args.batch_size} --output_path {eval_output_path}"
+                f"--batch_size {args.batch_size} --output_path {eval_output_path} "
+                f"--device {args.device}"
             )
 
         print(
-                f"{'=' * 80}\nEvaluating {model} on {', '.join(tasks)} {'=' * 80}"
+                f"{'=' * 80}\nEvaluating {model} on {', '.join(tasks)}"
             )
         ret = os.system(command)
 
@@ -88,16 +88,17 @@ def main():
     args = parse_args()
     os.makedirs(args.output_path, exist_ok=True)
 
-    models = args.models.split(',') if ',' in args.models else args.model
+    models = args.models.split(',') if ',' in args.models else [args.models]
 
-    tasks = [
+    default_tasks = [
         'bangla_mmlu',
         'piqa_bn',
         'openbookqa_bn',
         'commonsenseqa_bn'
     ]
+    tasks = args.tasks.split(',') if args.tasks else default_tasks
 
-    results = eval_hf_models(
+    results = eval_models(
         args=args,
         models=models,
         tasks=tasks
@@ -105,7 +106,7 @@ def main():
 
     for task in tasks:
         print(
-            f"|{task} |{'|'.join(map(lambda model: format_value(args, results, model, task), hf_models))}|"
+            f"|{task} |{'|'.join(map(lambda model: format_value(args, results, model, task), models))}|"
         )
 
 if __name__ == "__main__": 
