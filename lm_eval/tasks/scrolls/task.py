@@ -116,7 +116,7 @@ class _SCROLLSTask(ConfigurableTask):
     PRUNE_MAX_TOKENS = None
     PRUNE_NUM_PROC = None
 
-    def __init__(self):
+    def __init__(self, config=None):
         super().__init__(config={"metadata": {"version": self.VERSION}})
         if self.DATASET_NAME is not None:
             self.metric = load_metric(_download_metric(), config_name=self.DATASET_NAME)
@@ -439,7 +439,7 @@ class GovReport(_SCROLLSSummaryTask):
 
     Note: The average length of the reference summaries is ~3,000
     characters, or ~600 tokens as tokenized by GPT-NeoX. For causal models,
-    it is recommended to set `max_gen_toks` sufficently large (e.g. 1024)
+    it is recommended to set `max_gen_toks` sufficiently large (e.g. 1024)
     to allow a full summary to be generated.
     """
 
