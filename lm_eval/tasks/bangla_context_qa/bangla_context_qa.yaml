@@ -6,8 +6,25 @@ validation_split: validation
 doc_to_text: "{{context}}\nQuestion: {{question}}?\nAnswer:"
 doc_to_target: answer
 should_decontaminate: true
-doc_to_decontamination_query: passage
+doc_to_decontamination_query: question
+generation_kwargs:
+  until:
+    - "\n"
+    - "."
+    - "।"
+  do_sample: false
+  temperature: 0.0
+filter_list:
+  - name: remove_whitespace
+    filter:
+      - function: remove_whitespace
+      - function: take_first
+target_delimiter: " "
 metric_list:
-  - metric: acc
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
 metadata:
-  version: 2.0
+  version: 3.0
