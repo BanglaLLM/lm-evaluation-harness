@@ -9,9 +9,8 @@ should_decontaminate: true
 doc_to_decontamination_query: question
 generation_kwargs:
   until:
-    - "\n"
-    - "."
-    - "।"
+    - "</s>"
+    - "<|im_end|>"
   do_sample: false
   temperature: 0.0
 filter_list:
@@ -20,6 +19,8 @@ filter_list:
       - function: remove_whitespace
       - function: take_first
 target_delimiter: " "
+repeats: 1
+num_fewshot: 5
 metric_list:
   - metric: exact_match
     aggregation: mean
