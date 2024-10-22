@@ -1,0 +1,13 @@
+task: bangla_context_qa
+dataset_path: hishab/bangla-qa-with-context
+dataset_name: null
+training_split: train
+validation_split: validation
+doc_to_text: "{{context}}\nQuestion: {{question}}?\nAnswer:"
+doc_to_target: answer
+should_decontaminate: true
+doc_to_decontamination_query: passage
+metric_list:
+  - metric: acc
+metadata:
+  version: 2.0
