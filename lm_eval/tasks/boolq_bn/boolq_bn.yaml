@@ -6,7 +6,7 @@ training_split: train
 validation_split: validation
 doc_to_text: "{{passage}}\nQuestion: {{question}}?\nAnswer:"
 doc_to_target: label
-doc_to_choice: ["no", "yes"]
+doc_to_choice: [true, false]
 should_decontaminate: true
 doc_to_decontamination_query: passage
 metric_list:
