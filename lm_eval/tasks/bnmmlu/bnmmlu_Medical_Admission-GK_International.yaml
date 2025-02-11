@@ -1,0 +1,32 @@
+dataset_name: Medical_Admission-GK_International
+dataset_path: hishab/titulm-bangla-mmlu
+doc_to_choice:
+- A
+- B
+- C
+- D
+doc_to_target: answer
+doc_to_text: '{{question.strip()}}
+
+  A. {{choices[0]}}
+
+  B. {{choices[1]}}
+
+  C. {{choices[2]}}
+
+  D. {{choices[3]}}
+
+  Answer:'
+fewshot_config:
+  sampler: first_n
+fewshot_split: dev
+metric_list:
+- aggregation: mean
+  higher_is_better: true
+  metric: acc
+- aggregation: mean
+  higher_is_better: true
+  metric: acc_norm
+output_type: multiple_choice
+task: bangla_mmlu
+test_split: test
