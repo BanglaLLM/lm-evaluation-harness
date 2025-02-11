@@ -28,5 +28,5 @@ metric_list:
   higher_is_better: true
   metric: acc_norm
 output_type: multiple_choice
-task: Medical_Admission-English
+task: bnmmlu_Medical_Admission-English
 test_split: test

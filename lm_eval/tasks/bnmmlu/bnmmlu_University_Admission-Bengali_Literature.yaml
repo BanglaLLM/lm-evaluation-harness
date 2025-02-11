@@ -28,5 +28,5 @@ metric_list:
   higher_is_better: true
   metric: acc_norm
 output_type: multiple_choice
-task: University_Admission-Bengali_Literature
+task: bnmmlu_University_Admission-Bengali_Literature
 test_split: test

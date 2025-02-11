@@ -28,5 +28,5 @@ metric_list:
   higher_is_better: true
   metric: acc_norm
 output_type: multiple_choice
-task: Job_Exams-GK_International
+task: bnmmlu_Job_Exams-GK_International
 test_split: test

@@ -28,5 +28,5 @@ metric_list:
   higher_is_better: true
   metric: acc_norm
 output_type: multiple_choice
-task: Medical_Admission-Biology_Zoology
+task: bnmmlu_Medical_Admission-Biology_Zoology
 test_split: test

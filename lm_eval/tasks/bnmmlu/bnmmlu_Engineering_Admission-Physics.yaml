@@ -28,5 +28,5 @@ metric_list:
   higher_is_better: true
   metric: acc_norm
 output_type: multiple_choice
-task: Engineering_Admission-Physics
+task: bnmmlu_Engineering_Admission-Physics
 test_split: test
