@@ -1,0 +1,11 @@
+group: bnmmlu
+task: ['Engineering_Admission-Chemistry', 'Engineering_Admission-Mathematics', 'Engineering_Admission-Physics','Higher_Secondary-Biology_Botany', 'Higher_Secondary-Biology_Zoology', 'Higher_Secondary-Chemistry', 'Higher_Secondary-Mathematics', 'Higher_Secondary-Physics','Job_Exams-Bengali_Grammar', 'Job_Exams-Bengali_Literature', 'Job_Exams-English', 'Job_Exams-GK_Bangladesh', 'Job_Exams-GK_International', 'Job_Exams-ICT', 'Job_Exams-IQ', 'Job_Exams-Mathematics','Medical_Admission-Biology_Botany', 'Medical_Admission-Biology_Zoology', 'Medical_Admission-Chemistry', 'Medical_Admission-English', 'Medical_Admission-GK_Bangladesh', 'Medical_Admission-GK_International', 'Medical_Admission-Physics','University_Admission-Bengali_Grammar', 'University_Admission-Bengali_Literature', 'University_Admission-Biology_Botany', 'University_Admission-Biology_Zoology', 'University_Admission-Chemistry', 'University_Admission-English', 'University_Admission-GK_Bangladesh', 'University_Admission-GK_International', 'University_Admission-ICT', 'University_Admission-IQ', 'University_Admission-Mathematics', 'University_Admission-Physics']
+aggregate_metric_list:
+  - aggregation: mean
+    metric: acc
+    weight_by_size: true
+  - aggregation: mean
+    metric: acc_norm
+    weight_by_size: true
+metadata:
+  version: 1.0
