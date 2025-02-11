@@ -8,13 +8,13 @@ doc_to_choice:
 doc_to_target: answer
 doc_to_text: '{{question.strip()}}
 
-  A. {{choices[0]}}
+  A. {{options[0]}}
 
-  B. {{choices[1]}}
+  B. {{options[1]}}
 
-  C. {{choices[2]}}
+  C. {{options[2]}}
 
-  D. {{choices[3]}}
+  D. {{options[3]}}
 
   Answer:'
 fewshot_config:
