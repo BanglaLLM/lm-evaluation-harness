@@ -28,5 +28,5 @@ metric_list:
   higher_is_better: true
   metric: acc_norm
 output_type: multiple_choice
-task: bangla_mmlu
+task: Medical_Admission-GK_Bangladesh
 test_split: test
