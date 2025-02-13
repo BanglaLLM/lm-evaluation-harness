@@ -5,8 +5,8 @@ output_type: multiple_choice
 training_split: train
 validation_split: validation
 doc_to_text: "{{passage}}\nQuestion: {{question}}?\nAnswer:"
-doc_to_target: answer_bn
-doc_to_choice: ["না", "হ্যা"]
+doc_to_target: answer
+doc_to_choice: ["no", "yes"]
 should_decontaminate: true
 doc_to_decontamination_query: passage
 metric_list:
