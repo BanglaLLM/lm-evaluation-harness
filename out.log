@@ -1,0 +1,200 @@
+================================================================================
+Evaluating BanglaLLM/Bangla-s1k-qwen-2.5-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 16
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=BanglaLLM/Bangla-s1k-qwen-2.5-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 0, batch_size: auto:4 (16,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     0|acc     |↑  |0.3847|±  |0.0040|
+|                |       |none  |     0|acc_norm|↑  |0.3847|±  |0.0040|
+|boolq_bn        |      2|none  |     0|acc     |↑  |0.7847|±  |0.0198|
+|                |       |none  |     0|acc_norm|↑  |0.7685|±  |0.0203|
+|commonsenseqa_bn|      1|none  |     0|acc     |↑  |0.1876|±  |0.0112|
+|                |       |none  |     0|acc_norm|↑  |0.2523|±  |0.0124|
+|openbookqa_bn   |      1|none  |     0|acc     |↑  |0.2072|±  |0.0182|
+|                |       |none  |     0|acc_norm|↑  |0.2978|±  |0.0205|
+|piqa_bn         |      1|none  |     0|acc     |↑  |0.5501|±  |0.0116|
+|                |       |none  |     0|acc_norm|↑  |0.5397|±  |0.0116|
+
+================================================================================
+Evaluating Qwen/Qwen2.5-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 16
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=Qwen/Qwen2.5-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 0, batch_size: auto:4 (16,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     0|acc     |↑  |0.3949|±  |0.0040|
+|                |       |none  |     0|acc_norm|↑  |0.3949|±  |0.0040|
+|boolq_bn        |      2|none  |     0|acc     |↑  |0.8403|±  |0.0176|
+|                |       |none  |     0|acc_norm|↑  |0.5486|±  |0.0240|
+|commonsenseqa_bn|      1|none  |     0|acc     |↑  |0.1835|±  |0.0111|
+|                |       |none  |     0|acc_norm|↑  |0.2367|±  |0.0122|
+|openbookqa_bn   |      1|none  |     0|acc     |↑  |0.1972|±  |0.0179|
+|                |       |none  |     0|acc_norm|↑  |0.2978|±  |0.0205|
+|piqa_bn         |      1|none  |     0|acc     |↑  |0.5446|±  |0.0116|
+|                |       |none  |     0|acc_norm|↑  |0.5430|±  |0.0116|
+
+================================================================================
+Evaluating BanglaLLM/Bangla-s1k-llama-3.2-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 32
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=BanglaLLM/Bangla-s1k-llama-3.2-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 0, batch_size: auto:4 (32,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     0|acc     |↑  |0.3046|±  |0.0038|
+|                |       |none  |     0|acc_norm|↑  |0.3046|±  |0.0038|
+|boolq_bn        |      2|none  |     0|acc     |↑  |0.6644|±  |0.0227|
+|                |       |none  |     0|acc_norm|↑  |0.5509|±  |0.0240|
+|commonsenseqa_bn|      1|none  |     0|acc     |↑  |0.1916|±  |0.0113|
+|                |       |none  |     0|acc_norm|↑  |0.2367|±  |0.0122|
+|openbookqa_bn   |      1|none  |     0|acc     |↑  |0.1891|±  |0.0176|
+|                |       |none  |     0|acc_norm|↑  |0.3260|±  |0.0210|
+|piqa_bn         |      1|none  |     0|acc     |↑  |0.5490|±  |0.0116|
+|                |       |none  |     0|acc_norm|↑  |0.5392|±  |0.0116|
+
+================================================================================
+Evaluating meta-llama/Llama-3.2-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 32
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=meta-llama/Llama-3.2-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 0, batch_size: auto:4 (32,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     0|acc     |↑  |0.3277|±  |0.0039|
+|                |       |none  |     0|acc_norm|↑  |0.3277|±  |0.0039|
+|boolq_bn        |      2|none  |     0|acc     |↑  |0.7338|±  |0.0213|
+|                |       |none  |     0|acc_norm|↑  |0.5370|±  |0.0240|
+|commonsenseqa_bn|      1|none  |     0|acc     |↑  |0.2097|±  |0.0117|
+|                |       |none  |     0|acc_norm|↑  |0.2686|±  |0.0127|
+|openbookqa_bn   |      1|none  |     0|acc     |↑  |0.2093|±  |0.0183|
+|                |       |none  |     0|acc_norm|↑  |0.3159|±  |0.0209|
+|piqa_bn         |      1|none  |     0|acc     |↑  |0.5550|±  |0.0116|
+|                |       |none  |     0|acc_norm|↑  |0.5359|±  |0.0116|
+
+================================================================================
+Evaluating hishab/titulm-llama-3.2-3b-v2.0 on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=hishab/titulm-llama-3.2-3b-v2.0,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 0, batch_size: auto:4 (64,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     0|acc     |↑  |0.2473|±  |0.0036|
+|                |       |none  |     0|acc_norm|↑  |0.2473|±  |0.0036|
+|boolq_bn        |      2|none  |     0|acc     |↑  |0.5741|±  |0.0238|
+|                |       |none  |     0|acc_norm|↑  |0.5324|±  |0.0240|
+|commonsenseqa_bn|      1|none  |     0|acc     |↑  |0.2334|±  |0.0121|
+|                |       |none  |     0|acc_norm|↑  |0.2760|±  |0.0128|
+|openbookqa_bn   |      1|none  |     0|acc     |↑  |0.1952|±  |0.0178|
+|                |       |none  |     0|acc_norm|↑  |0.3119|±  |0.0208|
+|piqa_bn         |      1|none  |     0|acc     |↑  |0.5843|±  |0.0115|
+|                |       |none  |     0|acc_norm|↑  |0.5794|±  |0.0115|
+
+================================================================================
+Evaluating BanglaLLM/Bangla-s1k-qwen-2.5-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 4
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=BanglaLLM/Bangla-s1k-qwen-2.5-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 5, batch_size: auto:4 (4,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     5|acc     |↑  |0.4098|±  |0.0040|
+|                |       |none  |     5|acc_norm|↑  |0.4098|±  |0.0040|
+|boolq_bn        |      2|none  |     5|acc     |↑  |0.7685|±  |0.0203|
+|                |       |none  |     5|acc_norm|↑  |0.7801|±  |0.0200|
+|commonsenseqa_bn|      1|none  |     5|acc     |↑  |0.1892|±  |0.0112|
+|                |       |none  |     5|acc_norm|↑  |0.2523|±  |0.0124|
+|openbookqa_bn   |      1|none  |     5|acc     |↑  |0.1851|±  |0.0174|
+|                |       |none  |     5|acc_norm|↑  |0.2958|±  |0.0205|
+|piqa_bn         |      1|none  |     5|acc     |↑  |0.5473|±  |0.0116|
+|                |       |none  |     5|acc_norm|↑  |0.5479|±  |0.0116|
+
+================================================================================
+Evaluating Qwen/Qwen2.5-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 4
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=Qwen/Qwen2.5-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 5, batch_size: auto:4 (4,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     5|acc     |↑  |0.4084|±  |0.0040|
+|                |       |none  |     5|acc_norm|↑  |0.4084|±  |0.0040|
+|boolq_bn        |      2|none  |     5|acc     |↑  |0.8356|±  |0.0179|
+|                |       |none  |     5|acc_norm|↑  |0.8403|±  |0.0176|
+|commonsenseqa_bn|      1|none  |     5|acc     |↑  |0.1974|±  |0.0114|
+|                |       |none  |     5|acc_norm|↑  |0.2244|±  |0.0119|
+|openbookqa_bn   |      1|none  |     5|acc     |↑  |0.1690|±  |0.0168|
+|                |       |none  |     5|acc_norm|↑  |0.2897|±  |0.0204|
+|piqa_bn         |      1|none  |     5|acc     |↑  |0.5326|±  |0.0116|
+|                |       |none  |     5|acc_norm|↑  |0.5288|±  |0.0116|
+
+================================================================================
+Evaluating BanglaLLM/Bangla-s1k-llama-3.2-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 4
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=BanglaLLM/Bangla-s1k-llama-3.2-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 5, batch_size: auto:4 (4,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     5|acc     |↑  |0.3353|±  |0.0039|
+|                |       |none  |     5|acc_norm|↑  |0.3353|±  |0.0039|
+|boolq_bn        |      2|none  |     5|acc     |↑  |0.5694|±  |0.0239|
+|                |       |none  |     5|acc_norm|↑  |0.6713|±  |0.0226|
+|commonsenseqa_bn|      1|none  |     5|acc     |↑  |0.2219|±  |0.0119|
+|                |       |none  |     5|acc_norm|↑  |0.2842|±  |0.0129|
+|openbookqa_bn   |      1|none  |     5|acc     |↑  |0.2032|±  |0.0181|
+|                |       |none  |     5|acc_norm|↑  |0.2877|±  |0.0203|
+|piqa_bn         |      1|none  |     5|acc     |↑  |0.5430|±  |0.0116|
+|                |       |none  |     5|acc_norm|↑  |0.5495|±  |0.0116|
+
+================================================================================
+Evaluating meta-llama/Llama-3.2-3B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 4
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=meta-llama/Llama-3.2-3B-Instruct,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 5, batch_size: auto:4 (4,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     5|acc     |↑  |0.3565|±  |0.0039|
+|                |       |none  |     5|acc_norm|↑  |0.3565|±  |0.0039|
+|boolq_bn        |      2|none  |     5|acc     |↑  |0.8056|±  |0.0191|
+|                |       |none  |     5|acc_norm|↑  |0.8125|±  |0.0188|
+|commonsenseqa_bn|      1|none  |     5|acc     |↑  |0.2293|±  |0.0120|
+|                |       |none  |     5|acc_norm|↑  |0.3014|±  |0.0131|
+|openbookqa_bn   |      1|none  |     5|acc     |↑  |0.2032|±  |0.0181|
+|                |       |none  |     5|acc_norm|↑  |0.3239|±  |0.0210|
+|piqa_bn         |      1|none  |     5|acc     |↑  |0.5734|±  |0.0115|
+|                |       |none  |     5|acc_norm|↑  |0.5631|±  |0.0116|
+
+================================================================================
+Evaluating hishab/titulm-llama-3.2-3b-v2.0 on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 16
+Passed argument batch_size = auto:4.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=hishab/titulm-llama-3.2-3b-v2.0,dtype=bfloat16), gen_kwargs: (None), limit: None, num_fewshot: 5, batch_size: auto:4 (16,64,64,64,64)
+|     Tasks      |Version|Filter|n-shot| Metric |   |Value |   |Stderr|
+|----------------|-------|------|-----:|--------|---|-----:|---|-----:|
+|bangla_mmlu     |Yaml   |none  |     5|acc     |↑  |0.2491|±  |0.0036|
+|                |       |none  |     5|acc_norm|↑  |0.2491|±  |0.0036|
+|boolq_bn        |      2|none  |     5|acc     |↑  |0.5718|±  |0.0238|
+|                |       |none  |     5|acc_norm|↑  |0.5417|±  |0.0240|
+|commonsenseqa_bn|      1|none  |     5|acc     |↑  |0.2645|±  |0.0126|
+|                |       |none  |     5|acc_norm|↑  |0.3243|±  |0.0134|
+|openbookqa_bn   |      1|none  |     5|acc     |↑  |0.2072|±  |0.0182|
+|                |       |none  |     5|acc_norm|↑  |0.3461|±  |0.0214|
+|piqa_bn         |      1|none  |     5|acc     |↑  |0.5925|±  |0.0115|
+|                |       |none  |     5|acc_norm|↑  |0.5990|±  |0.0114|
+

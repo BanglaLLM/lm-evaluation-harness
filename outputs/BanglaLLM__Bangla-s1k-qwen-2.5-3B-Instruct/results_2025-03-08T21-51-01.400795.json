@@ -1,0 +1,330 @@
+{
+  "results": {
+    "bangla_mmlu": {
+      "alias": "bangla_mmlu",
+      "acc,none": 0.3846779661016949,
+      "acc_stderr,none": 0.004006070623097794,
+      "acc_norm,none": 0.3846779661016949,
+      "acc_norm_stderr,none": 0.004006070623097794
+    },
+    "boolq_bn": {
+      "alias": "boolq_bn",
+      "acc,none": 0.7847222222222222,
+      "acc_stderr,none": 0.019797891575666714,
+      "acc_norm,none": 0.7685185185185185,
+      "acc_norm_stderr,none": 0.02031639556042272
+    },
+    "commonsenseqa_bn": {
+      "alias": "commonsenseqa_bn",
+      "acc,none": 0.18755118755118755,
+      "acc_stderr,none": 0.011175783964114687,
+      "acc_norm,none": 0.25225225225225223,
+      "acc_norm_stderr,none": 0.012434123245733774
+    },
+    "openbookqa_bn": {
+      "alias": "openbookqa_bn",
+      "acc,none": 0.20724346076458752,
+      "acc_stderr,none": 0.018199920724686902,
+      "acc_norm,none": 0.2977867203219316,
+      "acc_norm_stderr,none": 0.020532713351731024
+    },
+    "piqa_bn": {
+      "alias": "piqa_bn",
+      "acc,none": 0.5500544069640914,
+      "acc_stderr,none": 0.011607220837980133,
+      "acc_norm,none": 0.5397170837867247,
+      "acc_norm_stderr,none": 0.011628961491718543
+    }
+  },
+  "group_subtasks": {
+    "bangla_mmlu": [],
+    "boolq_bn": [],
+    "commonsenseqa_bn": [],
+    "openbookqa_bn": [],
+    "piqa_bn": []
+  },
+  "configs": {
+    "bangla_mmlu": {
+      "task": "bangla_mmlu",
+      "dataset_path": "hishab/bangla-mmlu",
+      "test_split": "test",
+      "fewshot_split": "dev",
+      "doc_to_text": "{{question.strip()}}\nA. {{choices[0]}}\nB. {{choices[1]}}\nC. {{choices[2]}}\nD. {{choices[3]}}\nAnswer:",
+      "doc_to_target": "answer",
+      "doc_to_choice": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "fewshot_config": {
+        "sampler": "first_n"
+      },
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false
+    },
+    "boolq_bn": {
+      "task": "boolq_bn",
+      "dataset_path": "hishab/boolq_bn",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "{{passage}}\nQuestion: {{question}}?\nAnswer:",
+      "doc_to_target": "answer",
+      "doc_to_choice": [
+        "no",
+        "yes"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "passage",
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "commonsenseqa_bn": {
+      "task": "commonsenseqa_bn",
+      "dataset_path": "hishab/commonsenseqa-bn",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "question_stem",
+      "doc_to_target": "{{choices.label.index(answerKey.lstrip())}}",
+      "doc_to_choice": "{{choices.text}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "question_stem",
+      "metadata": {
+        "version": 1.0
+      }
+    },
+    "openbookqa_bn": {
+      "task": "openbookqa_bn",
+      "dataset_path": "hishab/openbookqa-bn",
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "question_stem",
+      "doc_to_target": "{{choices.label.index(answerKey.lstrip())}}",
+      "doc_to_choice": "{{choices.text}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "question_stem",
+      "metadata": {
+        "version": 1.0
+      }
+    },
+    "piqa_bn": {
+      "task": "piqa_bn",
+      "dataset_path": "hishab/piqa-bn",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "Question: {{goal}}\nAnswer:",
+      "doc_to_target": "label",
+      "doc_to_choice": "{{[sol1, sol2]}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "goal",
+      "metadata": {
+        "version": 1.0
+      }
+    }
+  },
+  "versions": {
+    "bangla_mmlu": "Yaml",
+    "boolq_bn": 2.0,
+    "commonsenseqa_bn": 1.0,
+    "openbookqa_bn": 1.0,
+    "piqa_bn": 1.0
+  },
+  "n-shot": {
+    "bangla_mmlu": 0,
+    "boolq_bn": 0,
+    "commonsenseqa_bn": 0,
+    "openbookqa_bn": 0,
+    "piqa_bn": 0
+  },
+  "higher_is_better": {
+    "bangla_mmlu": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "boolq_bn": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "commonsenseqa_bn": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "openbookqa_bn": {
+      "acc": true,
+      "acc_norm": true
+    },
+    "piqa_bn": {
+      "acc": true,
+      "acc_norm": true
+    }
+  },
+  "n-samples": {
+    "piqa_bn": {
+      "original": 1838,
+      "effective": 1838
+    },
+    "openbookqa_bn": {
+      "original": 497,
+      "effective": 497
+    },
+    "commonsenseqa_bn": {
+      "original": 1221,
+      "effective": 1221
+    },
+    "boolq_bn": {
+      "original": 432,
+      "effective": 432
+    },
+    "bangla_mmlu": {
+      "original": 14750,
+      "effective": 14750
+    }
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=BanglaLLM/Bangla-s1k-qwen-2.5-3B-Instruct,dtype=bfloat16",
+    "model_num_parameters": 3085938688,
+    "model_dtype": "torch.bfloat16",
+    "model_revision": "main",
+    "model_sha": "c82816421594d2cbd8ff2246941c593382cab4b6",
+    "batch_size": "auto:4",
+    "batch_sizes": [
+      16,
+      64,
+      64,
+      64,
+      64
+    ],
+    "device": null,
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "abb4c0ec",
+  "date": 1741470524.2492633,
+  "pretty_env_info": "PyTorch version: 2.5.1+cu124\nIs debug build: False\nCUDA used to build PyTorch: 12.4\nROCM used to build PyTorch: N/A\n\nOS: Ubuntu 22.04.4 LTS (x86_64)\nGCC version: (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0\nClang version: Could not collect\nCMake version: Could not collect\nLibc version: glibc-2.35\n\nPython version: 3.12.9 (main, Feb 12 2025, 14:50:50) [Clang 19.1.6 ] (64-bit runtime)\nPython platform: Linux-6.8.0-51-generic-x86_64-with-glibc2.35\nIs CUDA available: True\nCUDA runtime version: 12.1.105\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: GPU 0: NVIDIA H200\nNvidia driver version: 550.127.05\ncuDNN version: Probably one of the following:\n/usr/lib/x86_64-linux-gnu/libcudnn.so.8.9.0\n/usr/lib/x86_64-linux-gnu/libcudnn_adv_infer.so.8.9.0\n/usr/lib/x86_64-linux-gnu/libcudnn_adv_train.so.8.9.0\n/usr/lib/x86_64-linux-gnu/libcudnn_cnn_infer.so.8.9.0\n/usr/lib/x86_64-linux-gnu/libcudnn_cnn_train.so.8.9.0\n/usr/lib/x86_64-linux-gnu/libcudnn_ops_infer.so.8.9.0\n/usr/lib/x86_64-linux-gnu/libcudnn_ops_train.so.8.9.0\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nArchitecture:                         x86_64\nCPU op-mode(s):                       32-bit, 64-bit\nAddress sizes:                        46 bits physical, 57 bits virtual\nByte Order:                           Little Endian\nCPU(s):                               192\nOn-line CPU(s) list:                  0-191\nVendor ID:                            GenuineIntel\nModel name:                           INTEL(R) XEON(R) PLATINUM 8568Y+\nCPU family:                           6\nModel:                                207\nThread(s) per core:                   2\nCore(s) per socket:                   48\nSocket(s):                            2\nStepping:                             2\nCPU max MHz:                          4000.0000\nCPU min MHz:                          800.0000\nBogoMIPS:                             4600.00\nFlags:                                fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cat_l2 cdp_l3 intel_ppin cdp_l2 ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect user_shstk avx_vnni avx512_bf16 wbnoinvd dtherm ida arat pln pts hfi vnmi avx512vbmi umip pku ospke waitpkg avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid bus_lock_detect cldemote movdiri movdir64b enqcmd fsrm md_clear serialize tsxldtrk pconfig arch_lbr ibt amx_bf16 avx512_fp16 amx_tile amx_int8 flush_l1d arch_capabilities\nVirtualization:                       VT-x\nL1d cache:                            4.5 MiB (96 instances)\nL1i cache:                            3 MiB (96 instances)\nL2 cache:                             192 MiB (96 instances)\nL3 cache:                             600 MiB (2 instances)\nNUMA node(s):                         2\nNUMA node0 CPU(s):                    0-47,96-143\nNUMA node1 CPU(s):                    48-95,144-191\nVulnerability Gather data sampling:   Not affected\nVulnerability Itlb multihit:          Not affected\nVulnerability L1tf:                   Not affected\nVulnerability Mds:                    Not affected\nVulnerability Meltdown:               Not affected\nVulnerability Mmio stale data:        Not affected\nVulnerability Reg file data sampling: Not affected\nVulnerability Retbleed:               Not affected\nVulnerability Spec rstack overflow:   Not affected\nVulnerability Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:             Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:             Mitigation; Enhanced / Automatic IBRS; IBPB conditional; RSB filling; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S\nVulnerability Srbds:                  Not affected\nVulnerability Tsx async abort:        Not affected\n\nVersions of relevant libraries:\n[pip3] numpy==1.26.4\n[pip3] torch==2.5.1\n[pip3] torchaudio==2.5.1\n[pip3] torchvision==0.20.1\n[pip3] triton==3.1.0\n[conda] Could not collect",
+  "transformers_version": "4.49.0",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|endoftext|>",
+    "151643"
+  ],
+  "tokenizer_eos_token": [
+    "<|im_end|>",
+    "151645"
+  ],
+  "tokenizer_bos_token": [
+    null,
+    "None"
+  ],
+  "eot_token_id": 151645,
+  "max_length": 32768,
+  "task_hashes": {},
+  "model_source": "hf",
+  "model_name": "BanglaLLM/Bangla-s1k-qwen-2.5-3B-Instruct",
+  "model_name_sanitized": "BanglaLLM__Bangla-s1k-qwen-2.5-3B-Instruct",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 5022590.563061623,
+  "end_time": 5022732.062439237,
+  "total_evaluation_time_seconds": "141.4993776138872"
+}

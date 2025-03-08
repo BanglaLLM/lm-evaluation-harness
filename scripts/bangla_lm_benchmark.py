@@ -13,8 +13,8 @@ def parse_args():
     parser = ArgumentParser()
     parser.add_argument("--models", type=str, help="one or multiple huggingface models, separated by comma")
     parser.add_argument("--tasks", type=str, default=None, help="one or multiple task separated by comma")
-    parser.add_argument("--device", type=str, default="cpu")
-    parser.add_argument("--acc_norm", type=bool, default=False)
+    parser.add_argument("--device", type=str, default="cuda:0")
+    parser.add_argument("--acc_norm", type=bool, default=True)
     parser.add_argument("--num_fewshot", type=int, default=0)
     parser.add_argument("--limit", type=float, default=None)
     parser.add_argument("--batch_size", default="auto")
@@ -37,17 +37,49 @@ def eval_models(args, models, tasks):
                 f"--batch_size {args.batch_size} --output_path {eval_output_path} "
                 f"--device {args.device}"
             )
+        
+        logger.info(f"Tasks: {tasks}")
+        ###########
+        # Using VLM
+        ###########
+        # max_model_len = 32768 if "qwen" in model.lower() else 65536
+        # import torch
+        # num_of_gpus = torch.cuda.device_count()
+        # command = f"""\
+        #     lm_eval --model vllm \
+        #         --model_args pretrained={model},tensor_parallel_size={num_of_gpus},dtype=bfloat16,gpu_memory_utilization=0.5,max_model_len={max_model_len},enforce_eager=True \
+        #         --tasks {','.join(tasks)} \
+        #         --num_fewshot {args.num_fewshot} \
+        #         {'' if args.limit is None else f' --limit {args.limit}'} \
+        #         --output_path {args.output_path} \
+        #         --batch_size {args.batch_size} \
+        #         --wandb_args project=s1-bengali,name=eval-{model}-{args.num_fewshot}
+        # """
+
+        ##########
+        # Using HF
+        ##########
+        command = f"""\
+            lm_eval --model hf \
+                --model_args pretrained={model},dtype=bfloat16 \
+                --tasks {','.join(tasks)} \
+                --num_fewshot {args.num_fewshot} \
+                {'' if args.limit is None else f' --limit {args.limit}'} \
+                --output_path {args.output_path} \
+                --batch_size {args.batch_size} \
+                --wandb_args project=s1-bengali,name=eval-{model}-{args.num_fewshot}
+        """
 
         print(
                 f"{'=' * 80}\nEvaluating {model} on {', '.join(tasks)}"
             )
         ret = os.system(command)
 
-        results[model] = (
-                json.load(open(eval_output_path, encoding="utf-8"))
-                if ret == 0
-                else {"results": {}}
-            )
+        # results[model] = (
+        #         json.load(open(eval_output_path, encoding="utf-8"))
+        #         if ret == 0
+        #         else {"results": {}}
+        #     )
         logger.info(f"total time taken: {time.time() - start_time}")
     
     return results
@@ -94,7 +126,8 @@ def main():
         'bangla_mmlu',
         'piqa_bn',
         'openbookqa_bn',
-        'commonsenseqa_bn'
+        'commonsenseqa_bn',
+        'boolq_bn'
     ]
     tasks = args.tasks.split(',') if args.tasks else default_tasks
 
@@ -104,10 +137,10 @@ def main():
         tasks=tasks
     )
 
-    for task in tasks:
-        print(
-            f"|{task} |{'|'.join(map(lambda model: format_value(args, results, model, task), models))}|"
-        )
+    # for task in tasks:
+    #     print(
+    #         f"|{task} |{'|'.join(map(lambda model: format_value(args, results, model, task), models))}|"
+    #     )
 
 if __name__ == "__main__": 
     main()
