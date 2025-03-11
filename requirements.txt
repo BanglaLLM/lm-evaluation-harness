@@ -1,3 +1,5 @@
 -e .
 loguru
 einops
+wandb==0.17.2
+gpustat
