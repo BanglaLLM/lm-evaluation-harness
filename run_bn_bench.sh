@@ -12,7 +12,7 @@ Qwen/Qwen2.5-32B-Instruct"
 
 models="\
 BanglaLLM/Bangla-s1k-QWQ-32B-Instruct,\
-Qwen/Qwen2.5-32B-Instruct"
+Qwen/QWQ-32B"
 
 # limit=0.1
 # models="BanglaLLM/Bangla-s1k-qwen-2.5-3B-Instruct"

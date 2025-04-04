@@ -1,6 +1,6 @@
-task: hotpotqa_bn_nllb
-description: "Bangla translated (with nllb) version of the HotpotQA dataset for evaluating multi-hop reasoning capabilities in Bangla language models."
-dataset_path: BanglaLLM/translated_hotpotqa_nllb
+task: hotpotqa_bn_llama
+description: "Bangla translated (with llama) version of the HotpotQA dataset for evaluating multi-hop reasoning capabilities in Bangla language models."
+dataset_path: BanglaLLM/translated_hotpotqa_llama
 dataset_name: null
 output_type: generate_until
 training_split: train
