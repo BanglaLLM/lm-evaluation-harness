@@ -1,15 +1,13 @@
-task: hotpotqa_bn_nllb
-description: "Bangla translated version of the HotpotQA dataset for evaluating multi-hop reasoning capabilities in Bangla language models."
-dataset_path: BanglaLLM/translated_hotpotqa_nlb
+task: bangla_math
+description: "Evaluation task for Bangla mathematical problem solving capabilities of language models using the Ashrafur_bangla_math dataset."
+dataset_path: BanglaLLM/Ashrafur_bangla_math_short
 dataset_name: null
 output_type: generate_until
 training_split: train
 validation_split: validation
 test_split: test
-doc_to_text: "নিম্নলিখিত প্রশ্নের উত্তর দিন (বিস্তারিত যুক্তি প্রয়োজন):\n{{question}}\nউত্তর:"
-doc_to_target: "{{answer}}"
-# should_decontaminate: true
-# doc_to_decontamination_query: goal
+doc_to_text: "সমস্যা: {{problem}}\nসমাধান:"
+doc_to_target: "{{solution}}"
 metric_list:
   - metric: exact_match
     aggregation: mean
@@ -33,12 +31,6 @@ metric_list:
     higher_is_better: true
     use_stemmer: true
     rouge_type: "rougeL"
-  - metric: acc
-    aggregation: mean
-    higher_is_better: true
-  - metric: acc_norm
-    aggregation: mean
-    higher_is_better: true
   - metric: bleu
     aggregation: mean
     higher_is_better: true
