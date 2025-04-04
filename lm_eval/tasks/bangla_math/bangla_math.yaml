@@ -1,6 +1,6 @@
 task: bangla_math
 description: "Evaluation task for Bangla mathematical problem solving capabilities of language models using the Ashrafur_bangla_math dataset."
-dataset_path: BanglaLLM/Ashrafur_bangla_math_short
+dataset_path: BanglaLLM/bangla_math_by_Ashrafur
 dataset_name: null
 output_type: generate_until
 training_split: train
