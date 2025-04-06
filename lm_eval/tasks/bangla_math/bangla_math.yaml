@@ -30,7 +30,7 @@ metric_list:
     aggregation: mean
     higher_is_better: true
     use_stemmer: true
-    rouge_type: "rougeL"
+    #rouge_type: "rougeL"
   - metric: bleu
     aggregation: mean
     higher_is_better: true
