@@ -127,10 +127,10 @@ def main():
         'piqa_bn',
         'openbookqa_bn',
         'commonsenseqa_bn',
-        'boolq_bn',
-        'hotpotqa_bn_nllb',
-        'hotpotqa_bn_llama',
-        'bangla_math'
+        'boolq_bn'
+        #'hotpotqa_bn_nllb',
+        #'hotpotqa_bn_llama',
+        #'bangla_math'
     ]
     tasks = args.tasks.split(',') if args.tasks else default_tasks
 
