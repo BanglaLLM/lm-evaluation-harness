@@ -26,10 +26,10 @@ python scripts/bangla_lm_benchmark.py \
 --output_path "outputs"
 
 
-python scripts/bangla_lm_benchmark.py \
---models ${models} \
---batch_size "auto:4" \
---num_fewshot 5 \
---device "cuda:0" \
---acc_norm true \
---output_path "outputs"
+# python scripts/bangla_lm_benchmark.py \
+# --models ${models} \
+# --batch_size "auto:4" \
+# --num_fewshot 5 \
+# --device "cuda:0" \
+# --acc_norm true \
+# --output_path "outputs"

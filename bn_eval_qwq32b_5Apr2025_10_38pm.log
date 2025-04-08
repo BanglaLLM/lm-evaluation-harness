@@ -1,0 +1,4 @@
+================================================================================
+Evaluating BanglaLLM/Bangla-s1k-QWQ-32B-Instruct on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn, hotpotqa_bn_nllb, hotpotqa_bn_llama, bangla_math
+================================================================================
+Evaluating Qwen/QWQ-32B on bangla_mmlu, piqa_bn, openbookqa_bn, commonsenseqa_bn, boolq_bn, hotpotqa_bn_nllb, hotpotqa_bn_llama, bangla_math
