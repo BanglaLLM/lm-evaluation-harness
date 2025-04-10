@@ -69,5 +69,30 @@ def main():
         plt.savefig(os.path.join(output_dir, f"model_comparison_{shot}shot.png"))
         plt.close()
 
+    # Compute average accuracy per model and shot count
+    avg_df = (
+        df.groupby(["model", "num_fewshot"])["accuracy"]
+        .mean()
+        .reset_index()
+    )
+
+    plt.figure(figsize=(10, 6))
+    palette = {0: "green", 5: "red"}
+    sns.barplot(
+        data=avg_df,
+        y="model",
+        x="accuracy",
+        hue="num_fewshot",
+        orient="h",
+        palette=palette
+    )
+    plt.title("Average Accuracy per Model (0-shot vs 5-shot)")
+    plt.xlabel("Average Accuracy")
+    plt.ylabel("Model")
+    plt.legend(title="Shots")
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_dir, "model_comparison_avg.png"))
+    plt.close()
+
 if __name__ == "__main__":
     main()
